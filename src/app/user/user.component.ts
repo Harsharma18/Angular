@@ -106,8 +106,41 @@
 // }
 
 //using output decorator and output function
+// import { Component,signal,computed,Input,input,Output,output, EventEmitter} from '@angular/core';
+// import { DUMMY_USERS } from '../dummy-users';
+// type User = {id:string,name:string,avatar:string}
+// @Component({
+//   selector: 'app-user',
+//   standalone: true,
+//   imports: [],
+//   templateUrl: './user.component.html',
+//   styleUrls: ['./user.component.css']
+// })
+// export class UserComponent {
+//   // avatar=input.required<string>();
+//   // name=input.required<string>();
+//   // id=input.required<string>();
+//   // user = input.required<{id:string,name:string,avatar:string}>();
+//     user = input.required<User>();
+
+//   // @Output() userSelected = new EventEmitter<string>();
+//   //or
+//  userSelected = output<string>();
+//   imagePath = computed(()=>{
+//     return `/assets/users/${this.user().avatar}`
+//   })
+//   onSelectedUser(){
+// // console.log("User selected:", this.name());
+//     this.userSelected.emit(this.user().id);
+//   }
+
+// }
+
+
 import { Component,signal,computed,Input,input,Output,output, EventEmitter} from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
+import { type User } from './user.model';
+// type User = {id:string,name:string,avatar:string}
 
 @Component({
   selector: 'app-user',
@@ -117,18 +150,23 @@ import { DUMMY_USERS } from '../dummy-users';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
-  avatar=input.required<string>();
-  name=input.required<string>();
-  id=input.required<string>();
+//  @Input() user!:{
+//   id:string,
+//   name:string,
+//   avatar:string,
+//  }
+
+ @Input() user!:User;
+@Input({required:true}) selectedInput!:boolean;
   // @Output() userSelected = new EventEmitter<string>();
   //or
  userSelected = output<string>();
   imagePath = computed(()=>{
-    return `/assets/users/${this.avatar()}`
+    return `/assets/users/${this.user.avatar}`
   })
   onSelectedUser(){
 // console.log("User selected:", this.name());
-    this.userSelected.emit(this.id());
+    this.userSelected.emit(this.user.id);
   }
 
 }

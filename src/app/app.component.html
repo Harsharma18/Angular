@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!-- <app-header></app-header>
 <main>
   <ul id="users">
     <li>
@@ -35,4 +35,84 @@
     </li>
   </ul>
   <app-task [name]="SelectedUserId.name"></app-task>
+</main> -->
+<app-header></app-header>
+<main>
+  <ul id="users">
+    <!-- <li>
+      <app-user (userSelected)="OnSelectedUser($event)" [user]="users[0]" />
+    </li>
+    <li>
+      <app-user (userSelected)="OnSelectedUser($event)" [user]="users[1]" />
+    </li>
+    <li>
+      <app-user (userSelected)="OnSelectedUser($event)" [user]="users[2]" />
+    </li>
+    <li>
+      <app-user (userSelected)="OnSelectedUser($event)" [user]="users[3]" />
+    </li> -->
+
+    <!-- for -->
+    @for(user of users ; track user.id){
+    <li
+      [ngStyle]="{
+
+        'font-style':user.id==='u1'?'italic ':'normal'
+      }"
+    >
+      <app-user [selectedInput]="user.id=== selecteduserId" (userSelected)="OnSelectedUser($event)" [user]="user" />
+    </li>
+    }
+  </ul>
+
+  <!-- if else -->
+  @if(SelectedUserId){
+  <app-task [usersid]="SelectedUserId.id" [name]="SelectedUserId.name"></app-task>
+  } @else if(loading){
+  <p>Loading user data...</p>
+  } @else {
+  <p>Select a user to see their task</p>
+  }
+
+  <!-- switch -->
+  @switch(selecteduserId){ @case('u1'){
+  <p [ngClass]="'admin-role'">U1 user is admin</p>
+  } @case('u2'){
+  <p [ngStyle]="{ color: 'blue' }">U2 user is Editor</p>
+  } @case('u3'){
+  <p [ngClass]="['programmer-role', 'highlight']">U3 user is Programmer</p>
+  } @default {
+  <p>No special role</p>
+  } }
+  <!-- for -->
+  <!-- <li *ngFor="let user of users;">
+      <app-user (userSelected)= "OnSelectedUser($event)" [user]="user"></app-user>
+    </li>
+    </ul> -->
+  <!-- <app-task *ngIf="SelectedUserId else fallback" [name]="SelectedUserId!.name" ></app-task>
+<ng-template #fallback>
+    <p>Select a user to see their task</p>
+</ng-template> -->
+  <!-- <app-task *ngIf="SelectedUserId; else loadingtemplate" [name]="SelectedUserId!.name"></app-task>
+<ng-template #loadingtemplate>
+  <p *ngIf="loading; else fallback">Loading...</p>
+</ng-template>
+<ng-template #fallback>
+  <p>Select a user to seee their task</p>
+</ng-template>
+<div [ngSwitch]="selecteduserId">
+  <p *ngSwitchCase="'u1'" [ngClass]="'admin-role'">
+    U1 user is admin
+  </p>
+
+  <p *ngSwitchCase="'u2'" [ngStyle]="{ 'color': 'blue' }">
+    U2 user is Editor
+  </p>
+
+  <p *ngSwitchCase="'u3'" [ngClass]="['programmer-role', 'highlight']">
+    U3 user is Programmer
+  </p>
+
+  <p *ngSwitchDefault>No special role</p>
+</div> -->
 </main>

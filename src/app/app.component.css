@@ -54,3 +54,15 @@ main {
     text-align: left;
   }
 }
+.admin-role {
+  color: red;
+  font-weight: bold;
+}
+
+.programmer-role {
+  color: green;
+}
+
+.highlight {
+  background-color: yellow;
+}
