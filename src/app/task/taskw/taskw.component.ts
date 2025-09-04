@@ -1,12 +1,34 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from './taskw.model';
+import { NgStyle } from '@angular/common';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-taskw',
   standalone: true,
-  imports: [],
+  imports: [NgStyle,DatePipe],
   templateUrl: './taskw.component.html',
-  styleUrl: './taskw.component.css'
+  styleUrl: './taskw.component.css',
 })
 export class TaskwComponent {
-@Input({required:true}) task!:Task;
+  @Input({ required: true }) task!: Task;
+  @Output() completeTask = new EventEmitter<string>();
+@Output() editTask = new EventEmitter<{id:string, title:string, summary:string, date:string}>();
+
+OnEditTask(){
+  this.editTask.emit({
+    id: this.task.id,
+    title: this.task.title,
+    summary: this.task.summary,
+    date: this.task.dueDate,
+
+  });
+   console.log("this.edittask.id",this.task.id);
+}
+
+  OnCompleteTask() {
+    this.completeTask.emit(this.task.id);
+     console.log("deleete task id",this.task.id);
+  }
+
+
 }

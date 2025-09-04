@@ -1,8 +1,22 @@
 <article>
-  <h2>{{task.title}}</h2>
+  <h2>{{ task.title }}</h2>
   <time>
-    {{task.dueDate}}
+    {{ task.dueDate | date:'fullDate'}}
   </time>
-  <p>{{task.summary}}</p>
-  <p class="actions"><button>Complete Task</button></p>
+  <p>{{ task.summary }}</p>
+  <p class="actions">
+    <button (click)="OnCompleteTask()">Complete Task</button>
+  </p>
+  <button
+    [ngStyle]="{
+      'color': 'white',
+      'background-color': 'green',
+      'padding': '1rem',
+      'border-radius': '5px',
+      'margin-left': '1rem'
+    }"
+     (click)="OnEditTask()">
+
+   Edit Task
+  </button>
 </article>
