@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
   selector: 'app-header',
   templateUrl: `./header.component.html`,
   styleUrls: ['../header/header.component.css'],
-  standalone: true,
+  standalone: false,
   // template: `
   //   <h1>The header component</h1>
   //   <p>This is a paragraph</p>

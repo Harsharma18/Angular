@@ -5,11 +5,17 @@ import { DatePipe } from '@angular/common';
 import { CardComponent } from "../../shared/card/card.component";
 @Component({
   selector: 'app-taskw',
-  standalone: true,
-  imports: [NgStyle, DatePipe, CardComponent],
+  standalone: false,
   templateUrl: './taskw.component.html',
   styleUrl: './taskw.component.css',
 })
+// @Component({
+//   selector: 'app-taskw',
+//   standalone: true,
+//   imports: [NgStyle, DatePipe, CardComponent],
+//   templateUrl: './taskw.component.html',
+//   styleUrl: './taskw.component.css',
+// })
 export class TaskwComponent {
   @Input({ required: true }) task!: Task;
   @Output() completeTask = new EventEmitter<string>();

@@ -145,11 +145,17 @@ import { CardComponent } from "../shared/card/card.component";
 
 @Component({
   selector: 'app-user',
-  standalone: true,
-  imports: [CardComponent],
+  standalone: false,
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
+// @Component({
+//   selector: 'app-user',
+//   standalone: true,
+//   imports: [CardComponent],
+//   templateUrl: './user.component.html',
+//   styleUrls: ['./user.component.css']
+// })
 export class UserComponent {
 //  @Input() user!:{
 //   id:string,

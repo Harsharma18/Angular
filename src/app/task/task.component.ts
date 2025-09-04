@@ -2,14 +2,19 @@ import { Component, Input } from '@angular/core';
 import { TaskwComponent } from './taskw/taskw.component';
 import { NewTaskComponent } from './new-task/new-task.component';
 import { TaskService } from './task.service';
-
 @Component({
   selector: 'app-task',
-  standalone: true,
-  imports: [TaskwComponent, NewTaskComponent],
+  standalone: false,
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
+// @Component({
+//   selector: 'app-task',
+//   standalone: true,
+//   imports: [TaskwComponent, NewTaskComponent],
+//   templateUrl: './task.component.html',
+//   styleUrls: ['./task.component.css']
+// })
 export class TaskComponent {
   @Input({ required: true }) usersid!: string;
   @Input({ required: true }) name!: string;

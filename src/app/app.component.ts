@@ -4,10 +4,16 @@ import { UserComponent } from "./user/user.component";
 import { DUMMY_USERS } from './dummy-users';
 import { TaskComponent } from './task/task.component';
 import { NgClass,NgFor,NgIf,NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+// @Component({
+//   selector: 'app-root',
+//   standalone: true,
+//   imports: [HeaderComponent,UserComponent,TaskComponent,NgClass,NgStyle,NgFor,NgIf,NgSwitch,NgSwitchCase,NgSwitchDefault],
+//   templateUrl: './app.component.html',
+//   styleUrl: './app.component.css',
+// })
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [HeaderComponent,UserComponent,TaskComponent,NgClass,NgStyle,NgFor,NgIf,NgSwitch,NgSwitchCase,NgSwitchDefault],
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
