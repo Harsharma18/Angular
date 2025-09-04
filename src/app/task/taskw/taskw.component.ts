@@ -2,10 +2,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from './taskw.model';
 import { NgStyle } from '@angular/common';
 import { DatePipe } from '@angular/common';
+import { CardComponent } from "../../shared/card/card.component";
 @Component({
   selector: 'app-taskw',
   standalone: true,
-  imports: [NgStyle,DatePipe],
+  imports: [NgStyle, DatePipe, CardComponent],
   templateUrl: './taskw.component.html',
   styleUrl: './taskw.component.css',
 })

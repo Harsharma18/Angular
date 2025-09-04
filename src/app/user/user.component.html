@@ -4,9 +4,9 @@
     <span>{{user().name}}</span>
   </button>
 </div> -->
-<div>
+<app-card>
   <button [class.active]="selectedInput" (click)="onSelectedUser()">
     <img [src]="imagePath()" [alt]="user.name">
     <span>{{user.name}}</span>
   </button>
-</div>
+</app-card>
